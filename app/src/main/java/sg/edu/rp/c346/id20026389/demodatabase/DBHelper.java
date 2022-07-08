@@ -42,7 +42,7 @@ public class DBHelper extends SQLiteOpenHelper {
         ArrayList<String> tasks = new ArrayList<String>();
         // Select all the tasks' description
         String selectQuery = "SELECT " + COLUMN_DESCRIPTION
-                + " FROM " + TABLE_TASK;
+                + " FROM " + TABLE_TASK+" Order by "+COLUMN_DESCRIPTION+" ASC";
 
         // Get the instance of database to read
         SQLiteDatabase db = this.getReadableDatabase();
@@ -74,7 +74,7 @@ public class DBHelper extends SQLiteOpenHelper {
         String selectQuery = "SELECT " + COLUMN_ID + ", "
                 + COLUMN_DESCRIPTION + ", "
                 + COLUMN_DATE
-                + " FROM " + TABLE_TASK;
+                + " FROM " + TABLE_TASK+" Order by "+COLUMN_DESCRIPTION+" ASC";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(selectQuery, null);
